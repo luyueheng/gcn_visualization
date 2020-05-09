@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify, render_template
 from json import loads, dumps
+import base64
 # import numpy as np
 # import torch
 # from scipy import ndimage
@@ -28,7 +29,12 @@ def draw():
 def prediction_payload():
     
     print(request.json)
-    return "yes"
+    img_data = None
+    with open('static/blank_fake.png', 'rb') as f:
+      img_data = base64.b64encode(f.read())
+    return jsonify({
+      "output": "data:image/png;base64," + img_data.decode()
+    })
 
     # latent_vec = np.array(content['params'])
     # latent_vec = torch.Tensor(latent_vec)

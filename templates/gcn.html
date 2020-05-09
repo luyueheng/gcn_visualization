@@ -47,9 +47,13 @@
   color: white;
 }
 
-.generate_button:active {
+#generate_button:active {
   background-color: black;
   color: white;
+}
+
+button:focus {
+  outline:0;
 }
 
 </style>  
@@ -60,9 +64,7 @@
   <div>
     <p id="status" style="opacity: 1;">Model Loaded!</p>
     <div id="app">
-      <div id="input">
-
-      </div>
+      <div id="input"></div>
       <img id="output" src="/static/blank.png">
     </div>
     

@@ -19,6 +19,10 @@ var outer = d3.select("#input")
 var vis = outer
   .append('svg:g')
     .call(d3.behavior.zoom().on("zoom", rescale))
+    .on("mousedown.zoom", null)
+    .on("touchstart.zoom", null)
+    .on("touchmove.zoom", null)
+    .on("touchend.zoom", null)
     .on("dblclick.zoom", null)
   .append('svg:g')
     .on("mousemove", mousemove)
@@ -216,6 +220,13 @@ function rescale() {
       + " scale(" + scale + ")");
 }
 
+function get_dash(weight) {
+  if (weight === 1) {
+    return "4,0";
+  }
+  return "4,4";
+}
+
 // redraw force layout
 function redraw() {
 
@@ -223,9 +234,9 @@ function redraw() {
 
   link.enter().insert("line", ".node")
       .attr("class", "link")
-      //.attr("style", "stroke")
-      .style("stroke-dasharray","4,4")
-      .style("stroke-width", function(d) { return (4-d.weight); })
+      .style("stroke-dasharray", function(d) {
+        return get_dash(d.weight);
+      })
       .on("mousedown", 
         function(d) { 
           mousedown_link = d; 
@@ -366,7 +377,7 @@ function prepareData() {
     return data;
 }
 
-var response = null;
+var xxxxx = null;
 
 function sendData() {
     jsonObj = prepareData();
@@ -374,13 +385,12 @@ function sendData() {
     var url = "/generate";
     xhr.open("POST", url, true);
     xhr.setRequestHeader("Content-Type", "application/json");
-    // xhr.onreadystatechange = function () {
-    //     if (xhr.readyState === 4 && xhr.status === 200) {
-    //         var json = JSON.parse(xhr.responseText);
-    //         console.log(json.email + ", " + json.password);
-    //     }
-    // };
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+          img_datauri = JSON.parse(xhr.response)["output"];
+          document.getElementById("output").setAttribute("src", img_datauri);
+        }
+    };
     var data = JSON.stringify(jsonObj);
     xhr.send(data);
-    response = xhr.response;
 }
