@@ -2,18 +2,20 @@ from flask import Flask, request, jsonify, render_template
 from json import loads, dumps
 import base64
 # import numpy as np
-# import torch
-# from scipy import ndimage
+from gcn_builder import build_model
+import tensorflow as tf
 
 # Hyper Parameters - To Modify
 batch_size = 1
 lr = 1e-4
 
+model_gcn = build_model(batch_size=1, lr=1e-4)
+model_gcn.load_weights('../model/gcn')
+print(model_gcn.summary())
 
 
+# TODO: image prediction
 
-# load GAN model
-# filepath = "chair_G_cpu"
 # print('Loading GAN model')
 # gan_model = torch.load(filepath)
 # gan_model.eval()

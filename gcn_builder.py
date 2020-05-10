@@ -344,3 +344,31 @@ def build_model(batch_size=1, lr=1e-4):
 	model.compile(optimizer=optimizers.Adam(learning_rate=lr))
 
 	return model
+
+
+# Helper function for gcn_server
+# Prepare json for model prediction
+def json_to_data(response):
+    '''Response is the graph representation drawn by user'''
+    
+    data = []
+    
+    # Rooms
+    rooms = response['rooms'] + [0] * (35 - len(rooms))
+    rooms = np.expand_dims(np.array(rooms), axis=0)
+    data.append(rooms)
+    
+    # Weights of relationship
+    t = response['triples']
+    weights = [x[1] for x in t]
+    weights = weights + [0] * (595 - len(weights))
+    weights = np.expand_dims(np.array(weights), axis=0)
+    data.append(weights)
+    
+    # Room pairs
+    pairs = [x[::2] for x in t]
+    pairs = pairs + [[0,0]] * (595-len(pairs))
+    pairs = np.expand_dims(np.array(pairs), axis=0)
+    data.append(pairs)
+    
+    return data
