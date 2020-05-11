@@ -367,12 +367,9 @@ function prepareData() {
         s = l.source.idx;
         t = l.target.idx;
         data.triples.push([s, l.weight, t]);
-        if (!(s in data.rooms)) {
-            data.rooms.push(s)
-        }
-        if (!(t in data.rooms)) {
-            data.rooms.push(t)
-        }
+    });
+    nodes.forEach(n => {
+      data.rooms.push(n.idx);
     });
     return data;
 }
