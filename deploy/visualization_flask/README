@@ -1,0 +1,2 @@
+cd visualization_flask/
+FLASK_APP=gcn_server.py flask run

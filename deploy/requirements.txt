@@ -1,0 +1,6 @@
+numpy
+matplotlib
+tensorflow
+tensorflow-estimator
+Flask
+opencv-python

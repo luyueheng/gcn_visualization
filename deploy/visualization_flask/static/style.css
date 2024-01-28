@@ -1,0 +1,183 @@
+body{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Dosis', sans-serif;
+  --color-edge: black;
+  --thick-edge: 0.2px;
+  --style-edge: solid;
+}
+
+#screen{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  background: rgba(255,255,255,0.6);
+  width: 100vw;
+  height: 100vh;
+  position:absolute;
+  left:0;
+  top:0;
+}
+
+*{
+  font-family: Helvetica, Arial, sans-serif;
+  text-align: center;
+}
+
+#status{
+  color:rgb(209, 209, 209);
+  margin-bottom: 40px;
+  opacity: 0;
+}
+
+p{
+  font-family: 'Roboto', sans-serif;
+}
+
+div{
+  margin: 0px;
+  padding: 0px;
+  font-family: 'Roboto', sans-serif;
+}
+
+img{
+  height: 256px;
+  width: 256px;
+  box-shadow: none !important;
+}
+
+button{
+  padding: 5px 9px;
+  border: 1px solid black;
+  margin: 0px 5px 0px 0px;
+  font-family: 'Roboto', sans-serif;
+  background: white;
+  cursor: pointer;
+  font-size: 11px;
+}
+
+#buttons{
+  margin-top: 30px;
+}
+
+#app{
+  margin: 0px 0px 20px 0px;
+}
+
+#input{
+  display: inline;
+  cursor: pointer;
+}
+
+input{
+  cursor: pointer;
+}
+
+#output{
+  border: 1px solid rgb(224, 224, 224);
+  height: 256px;
+  width: 256px;
+}
+
+#colors div{
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin: 0px 20px 10px 0px;
+  display: inline-block;
+  align-content: center;
+  text-align: center;
+  justify-content: center;
+}
+
+.colors{
+  cursor: pointer;
+}
+
+.colors p{
+  margin-top: 35px;
+  color: rgb(170, 170, 170);
+}
+
+/* VOID */
+#color_void{
+  background: rgb(255, 255, 255);
+  border-style: solid;
+  border-color:rgb(170, 170, 170);
+  border-width: 0.2px;
+  left:300px;
+  
+}
+
+/* FLOOR */
+#color_0{
+  background: rgb(0, 0, 0);
+  border-style: --style-edge;
+  border-color:--color-edge;
+  border-width: --thick-edge;
+  
+}
+
+/* CARPET */
+#color_1{
+  background: rgb(3, 253, 5);
+  border-style: --style-edge;
+  border-color:--color-edge;
+  border-width: --thick-edge;
+}
+
+/* ARMCHAIR */
+#color_2{
+  background: rgb(230, 0, 0);
+  border-style: --style-edge;
+  border-color:--color-edge;
+  border-width: --thick-edge;
+}
+
+/* SMALL DESK */
+#color_3{
+  background: rgb(0, 255, 0);
+  border-style: --style-edge;
+  border-color:--color-edge;
+  border-width: --thick-edge;
+}
+
+/* CHAIR */
+#color_4{
+  background: rgb(255, 0, 191);
+  border-style: --style-edge;
+  border-color:--color-edge;
+  border-width: --thick-edge;
+}
+
+/* TVSET */
+#color_5{
+  background: rgb(255, 0, 0);
+  border-style: --style-edge;
+  border-color:--color-edge;
+  border-width: --thick-edge;
+}
+
+/* TABLE*/
+#color_6{
+  background: rgb(0, 0, 191);
+  border-style: --style-edge;
+  border-color:--color-edge;
+  border-width: --thick-edge;
+}
+
+#cancelBtn{
+  border-color: white;
+  color:rgb(170, 170, 170);
+}
+
+.btn:hover{
+  color: rgba(0,0,0,0.5);
+  border-color: rgba(0,0,0,0.5)
+  
+}
+
+

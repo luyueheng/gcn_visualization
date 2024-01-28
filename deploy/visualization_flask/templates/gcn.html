@@ -1,0 +1,111 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+  
+  <title>gcn</title>
+
+  <script src="https://d3js.org/d3.v2.min.js"></script>
+  <link rel="stylesheet" href="/static/style.css">
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-122084660-1');
+  </script>
+</head>
+  
+<style>
+
+.node {
+  fill: #000;
+  cursor: crosshair;
+}
+
+.drag_line {
+  stroke: rgb(224,224,224);
+  stroke-width: 3;
+  pointer-events: none;
+}
+
+.drag_line_hidden {
+  stroke: #999;
+  stroke-width: 0;
+  pointer-events: none;
+}
+
+.link {
+  stroke: rgb(50,50,50);
+  stroke-width: 5;
+  cursor: crosshair;
+}
+
+.button_selected {
+  background-color: black;
+  color: white;
+}
+
+#generate_button:active {
+  background-color: black;
+  color: white;
+}
+
+button:focus {
+  outline:0;
+}
+
+</style>  
+
+<body>
+
+  <!-- MODEL 1 -->
+  <div>
+    <p id="status" style="opacity: 1; margin-top: 40px;">YOUR MAGIC AI IS READY!</p>
+    <div id="app">
+      <div id="input"></div>
+      <img id="output" src="/static/blank.png">
+    </div>
+    
+    <center>
+    &nbsp;
+    </center>
+    <center>
+    &nbsp;
+    </center>
+    <img style="height:auto; width:650px;" src="/static/legend.png">
+    <div id="buttons" style="margin-top: 18;">
+      <button id="Living_button" onclick="current_room='LivingRoom';select_room_button(this);">Living Room</button>
+      <button class="button_selected" id="Bedroom_button" onclick="select_room_button(this);current_room='Bedroom';">Bedroom</button>
+      <button id="Kitchen_button" onclick="current_room='Kitchen';select_room_button(this);">Kitchen</button>
+      <button id="Dining_button" onclick="current_room='Dining';select_room_button(this);">Dining</button>
+      <button id="Bath_button" onclick="current_room='Bath';select_room_button(this);">Bath</button>
+      <button id="Storage_button" onclick="current_room='Storage';select_room_button(this);">Storage</button>
+      <button id="Entry_button" onclick="current_room='Entry';select_room_button(this);">Entry</button>
+      <button id="Garage_button" onclick="current_room='Garage';select_room_button(this);">Garage</button>
+      <button id="Outdoor_button" onclick="current_room='Outdoor';select_room_button(this);">Outdoor</button>
+      <button id="Other_button" onclick="current_room='Other';select_room_button(this);">Other</button>
+    </div>
+    
+    <div id="buttons">
+      <button id="direct_button" class="button_selected" onclick="current_weight=1;select_weight_button(this);">direct</button>
+      <button id="door_button" onclick="current_weight=2;select_weight_button(this);">door</button>
+    </div>
+    <div id="buttons">
+      <button id="generate_button" onclick="sendData();">Generate?!?!</button>
+      <button id="generate_button" onclick="location.reload();">Reset</button>
+    </div>
+    <div style="font-size: 12px;"">
+      <div id="status" style="opacity: 1;margin-top: 35px; margin-bottom: 0px; font-style: italic;">
+        Authors: <a id="status" style="opacity: 1" href="mailto:aoli@gsd.harvard.edu">Ao Li</a> / <a id="status" style="opacity: 1" href="mailto:runjia_tian@gsd.harvard.edu">Runjia Tian</a> / <a id="status" style="opacity: 1" href="mailto:xwang4@gsd.harvard.edu">Xiaoshi Wang</a> / <a id="status" style="opacity: 1" href="mailto:lu@gsd.harvard.edu" >Yueheng Lu</a>
+      </div>
+      <div id="status" style="opacity: 1;margin-bottom: 0px;">© 2020 PlanGCN Team. All Rights Reserved. </div>
+    </div>
+    
+    
+
+  </div>
+  <script src="/static/force_view.js"></script>
+
+</body></html>
